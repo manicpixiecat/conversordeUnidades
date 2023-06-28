@@ -1,0 +1,102 @@
+/* Reset CSS */
+/* Redefine estilos padrão aplicados pelos navegadores para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos personalizados */
+  
+  /* Estilos do corpo da página */
+  body {
+    background-color: rgb(49, 21, 98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Estilos da seção principal */
+  section {
+    background-color: rgb(67, 22, 173);
+    width: 600px;
+    padding: 40px;
+    border-radius: 30px;
+  }
+  
+  /* Estilos do título */
+  h1 {
+    color: antiquewhite;
+    font-family: 'Courier Prime', monospace;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  /* Estilos das etiquetas */
+  label {
+    display: block;
+    font-family: 'Courier Prime', monospace;
+    color: antiquewhite;
+    font-size: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos dos selects */
+  select {
+    font-family: 'Courier Prime', monospace;
+    color: rgb(188, 65, 129);
+    width: 200px;
+    height: 30px;
+    display: flex;
+    margin-left: 150px;
+  }
+  
+  /* Estilos das opções dos selects */
+  option {
+    color: rgb(188, 65, 129);
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    margin-left: 150px;
+  }
+  
+  /* Estilos do botão de conversão */
+  #converterBtn {
+    color: rgb(188, 65, 129);
+    background-color: rgb(30, 179, 89);
+    font-family: 'Courier Prime', monospace;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 180px;
+  }
+  
+  /* Estilos do botão de inversão */
+  #inverterBtn {
+    color: rgb(188, 65, 129);
+    background-color: rgb(30, 179, 89);
+    font-family: 'Courier Prime', monospace;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left:200px;
+  }
+  
+  /* Estilos do texto de resultado */
+  .resultado-texto {
+    color: antiquewhite;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Estilos do campo de valor */
+  #valor {
+    width: 200px;
+    height: 30px;
+    margin-left: 150px;
+  }
