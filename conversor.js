@@ -12,13 +12,13 @@ categoriaSelect.addEventListener('change', atualizarOpcoesDestino);
 function atualizarOpcoesDestino() {
   const categoria = categoriaSelect.value;
   console.log('Categoria:', categoria);
-    
+
   // Limpa as opções de unidade de origem e destino
   unidadeOrigemSelect.innerHTML = '';
   unidadeDestinoSelect.innerHTML = '';
 
 
-    // Verifica a categoria selecionada e cria as opções correspondentes
+  // Verifica a categoria selecionada e cria as opções correspondentes
 
   if (categoria === 'peso') {
     criarOpcoes(unidadeOrigemSelect, ['kilograma', 'gramas']);
@@ -27,8 +27,8 @@ function atualizarOpcoesDestino() {
     criarOpcoes(unidadeOrigemSelect, ['metros', 'centimetros']);
     criarOpcoes(unidadeDestinoSelect, ['polegadas',]);
   } else if (categoria === 'temperatura') {
-    criarOpcoes(unidadeOrigemSelect, ['celsius', 'fahrenheit', 'kevin']);
-    criarOpcoes(unidadeDestinoSelect, ['fahrenheit', 'celsius', 'kevin']);
+    criarOpcoes(unidadeOrigemSelect, ['celsius', 'fahrenheit', 'kelvin']);
+    criarOpcoes(unidadeDestinoSelect, ['fahrenheit', 'celsius', 'kelvin']);
   }
 }
 // Função para criar as opções do elemento select
@@ -42,7 +42,9 @@ function criarOpcoes(selectElement, unidades) {
 }
 
 // Função chamada quando o botão de conversão é clicado
-function converter() {
+
+function converter(event) {
+  event.preventDefault();
   const categoria = categoriaSelect.value;
   const unidadeOrigem = unidadeOrigemSelect.value;
   const unidadeDestino = unidadeDestinoSelect.value;
@@ -53,15 +55,14 @@ function converter() {
   console.log('Unidade Destino:', unidadeDestino);
   console.log('Valor:', valor);
 
-    // Verifica se todos os campos foram preenchidos corretamente
-  if (!categoria || !unidadeOrigem || !unidadeDestino || isNaN(valor)) {
-    document.getElementById('resultado').textContent = 'Preencha todos os campos corretamente.';
-    return;
+  // Verifica se todos os campos foram preenchidos corretamente
+  if (categoriaSelect.value.length == 0 || unidadeOrigemSelect.value.length == 0 || unidadeDestinoSelect.value.length == 0 || valorInput.value.length == 0) {
+    res.innerHTML = 'Preencha todos os campos corretamente';
   }
 
   let resultado;
 
-    // Verifica a categoria selecionada e chama a função de conversão correspondente
+  // Verifica a categoria selecionada e chama a função de conversão correspondente
 
   if (categoria === 'peso') {
     resultado = converterPeso(valor, unidadeOrigem, unidadeDestino);
@@ -72,7 +73,7 @@ function converter() {
   }
 
   console.log('Resultado:', resultado);
- 
+
   // Exibe o resultado da conversão na página
 
   document.getElementById('resultado').textContent = resultado;
@@ -81,7 +82,7 @@ function converter() {
 
 function converterPeso(valor, unidadeOrigem, unidadeDestino) {
   let resultado;
-  
+
   // Condição que faz a conversão de acordo com as unidades de origem e destino
 
   if (unidadeOrigem === 'kilograma') {
@@ -126,7 +127,7 @@ function converterPeso(valor, unidadeOrigem, unidadeDestino) {
 function converterComprimento(valor, unidadeOrigem, unidadeDestino) {
   let resultado;
 
-    // Condições que faz a conversão de acordo com as unidades de origem e destino
+  // Condições que faz a conversão de acordo com as unidades de origem e destino
 
   if (unidadeOrigem === 'metros') {
     if (unidadeDestino === 'centimetros') {
@@ -156,7 +157,7 @@ function converterComprimento(valor, unidadeOrigem, unidadeDestino) {
 function converterTemperatura(valor, unidadeOrigem, unidadeDestino) {
   let resultado;
 
-    // Condições para conversão de acordo com as unidades de origem e destino
+  // Condições para conversão de acordo com as unidades de origem e destino
 
   if (unidadeOrigem === 'celsius') {
     if (unidadeDestino === 'fahrenheit') {
@@ -182,7 +183,8 @@ function converterTemperatura(valor, unidadeOrigem, unidadeDestino) {
 
 // Botão para inverter as unidades de origem e destino
 const inverterBtn = document.getElementById('inverterBtn');
-inverterBtn.addEventListener('click', inverterConversao());
+inverterBtn.addEventListener('click', inverterConversao);
+
 function inverterConversao() {
   const unidadeOrigem = unidadeOrigemSelect.value;
   const unidadeDestino = unidadeDestinoSelect.value;
